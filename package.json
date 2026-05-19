@@ -1,0 +1,97 @@
+{
+  "name": "@tessera-llm/vercel-ai",
+  "version": "0.1.0",
+  "description": "Drop-in Tessera integration for the Vercel AI SDK. One line of config routes generateText / streamText / generateObject / streamObject through Tessera's auto-route + auto-cache + auto-compress + auto-batch proxy. Compatible with @ai-sdk/openai, @ai-sdk/anthropic, @ai-sdk/mistral, @ai-sdk/groq, @ai-sdk/cohere. Free 60M tokens/mo. Production: 20% of measured savings.",
+  "keywords": [
+    "tessera",
+    "vercel-ai",
+    "vercel-ai-sdk",
+    "ai-sdk",
+    "llm",
+    "openai",
+    "anthropic",
+    "mistral",
+    "groq",
+    "cohere",
+    "cost-optimization",
+    "ai-cost",
+    "llm-cost",
+    "llm-proxy",
+    "gpt-4o",
+    "claude",
+    "typescript"
+  ],
+  "homepage": "https://tesseraai.io/dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tessera-llm/tessera-vercel-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tessera-llm/tessera-vercel-ai/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "Tessera (Fintechagency OÜ) <contact@tesseraai.io>",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --target node18",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@ai-sdk/anthropic": "*",
+    "@ai-sdk/cohere": "*",
+    "@ai-sdk/groq": "*",
+    "@ai-sdk/mistral": "*",
+    "@ai-sdk/openai": "*"
+  },
+  "peerDependenciesMeta": {
+    "@ai-sdk/anthropic": {
+      "optional": true
+    },
+    "@ai-sdk/cohere": {
+      "optional": true
+    },
+    "@ai-sdk/groq": {
+      "optional": true
+    },
+    "@ai-sdk/mistral": {
+      "optional": true
+    },
+    "@ai-sdk/openai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@ai-sdk/anthropic": "^3.0.78",
+    "@ai-sdk/cohere": "^3.0.36",
+    "@ai-sdk/groq": "^3.0.39",
+    "@ai-sdk/mistral": "^3.0.37",
+    "@ai-sdk/openai": "^3.0.64",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

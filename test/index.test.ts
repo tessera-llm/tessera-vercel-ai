@@ -1,0 +1,124 @@
+import { describe, it, expect } from "vitest";
+import {
+  TESSERA_BASE_URL,
+  tesseraOpenAIConfig,
+  tesseraAnthropicConfig,
+  tesseraMistralConfig,
+  tesseraGroqConfig,
+  tesseraCohereConfig,
+  tesseraConfig,
+} from "../src/index.js";
+
+describe("tesseraOpenAIConfig", () => {
+  it("returns the OpenAI proxy configuration", () => {
+    const cfg = tesseraOpenAIConfig({ apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/openai`);
+    expect(cfg.headers).toEqual({ "x-tessera-api-key": "tsr_test" });
+  });
+
+  it("merges extra headers", () => {
+    const cfg = tesseraOpenAIConfig({
+      apiKey: "tsr_test",
+      extraHeaders: { "x-trace": "abc" },
+    });
+    expect(cfg.headers).toEqual({
+      "x-trace": "abc",
+      "x-tessera-api-key": "tsr_test",
+    });
+  });
+
+  it("accepts a custom base URL override", () => {
+    const cfg = tesseraOpenAIConfig({
+      apiKey: "tsr_test",
+      baseUrl: "https://staging.tesseraai.io/v1/openai",
+    });
+    expect(cfg.baseURL).toBe("https://staging.tesseraai.io/v1/openai");
+  });
+});
+
+describe("tesseraAnthropicConfig", () => {
+  it("returns the Anthropic proxy configuration", () => {
+    const cfg = tesseraAnthropicConfig({ apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/anthropic`);
+    expect(cfg.headers).toEqual({ "x-tessera-api-key": "tsr_test" });
+  });
+});
+
+describe("tesseraMistralConfig", () => {
+  it("returns the Mistral proxy configuration", () => {
+    const cfg = tesseraMistralConfig({ apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/mistral`);
+    expect(cfg.headers).toEqual({ "x-tessera-api-key": "tsr_test" });
+  });
+});
+
+describe("tesseraGroqConfig", () => {
+  it("returns the Groq proxy configuration", () => {
+    const cfg = tesseraGroqConfig({ apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/groq`);
+    expect(cfg.headers).toEqual({ "x-tessera-api-key": "tsr_test" });
+  });
+});
+
+describe("tesseraCohereConfig", () => {
+  it("returns the Cohere proxy configuration", () => {
+    const cfg = tesseraCohereConfig({ apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/cohere`);
+    expect(cfg.headers).toEqual({ "x-tessera-api-key": "tsr_test" });
+  });
+});
+
+describe("tesseraConfig (generic dispatcher)", () => {
+  it("routes openai", () => {
+    const cfg = tesseraConfig("openai", { apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/openai`);
+  });
+
+  it("routes anthropic", () => {
+    const cfg = tesseraConfig("anthropic", { apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/anthropic`);
+  });
+
+  it("routes mistral", () => {
+    const cfg = tesseraConfig("mistral", { apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/mistral`);
+  });
+
+  it("routes groq", () => {
+    const cfg = tesseraConfig("groq", { apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/groq`);
+  });
+
+  it("routes cohere", () => {
+    const cfg = tesseraConfig("cohere", { apiKey: "tsr_test" });
+    expect(cfg.baseURL).toBe(`${TESSERA_BASE_URL}/v1/cohere`);
+  });
+
+  it("rejects unknown provider", () => {
+    expect(() =>
+      // @ts-expect-error — intentional invalid provider
+      tesseraConfig("unknown", { apiKey: "tsr_test" })
+    ).toThrow(/Unknown provider/);
+  });
+});
+
+describe("input validation", () => {
+  it("rejects empty apiKey", () => {
+    expect(() => tesseraOpenAIConfig({ apiKey: "" })).toThrow(/non-empty/);
+  });
+
+  it("rejects non-string apiKey", () => {
+    expect(() =>
+      // @ts-expect-error — intentional invalid input
+      tesseraOpenAIConfig({ apiKey: null })
+    ).toThrow(/non-empty/);
+  });
+});
+
+describe("config shape — AiSdkProviderInit", () => {
+  it("returns objects with the exact shape @ai-sdk/* createX accepts", () => {
+    const cfg = tesseraOpenAIConfig({ apiKey: "tsr_test" });
+    // Has baseURL and headers, NOTHING else
+    expect(Object.keys(cfg).sort()).toEqual(["baseURL", "headers"].sort());
+  });
+});
