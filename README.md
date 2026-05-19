@@ -181,7 +181,7 @@ Semver. Wire format compatibility committed across minor releases; breaking chan
 
 ## Security
 
-See [`SECURITY.md`](./SECURITY.md) (TODO). Coordinated disclosure address: `security@tesseraai.io`.
+See [`SECURITY.md`](./SECURITY.md). Coordinated disclosure address: `security@tesseraai.io`.
 
 ---
 
