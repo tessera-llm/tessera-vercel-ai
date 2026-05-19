@@ -4,6 +4,14 @@ All notable changes to `@tessera-llm/vercel-ai` documented here. Follows [Keep a
 
 ## [Unreleased]
 
+### Changed
+
+- README cross-link block extended to include `@tessera-llm/mastra` (Mastra
+  Agent framework integration) and `tessera-pydantic-ai` (Pydantic AI
+  integration) — Tessera's sibling-package roster now covers six framework
+  surfaces. No code change in this package; the cross-link refresh ships on
+  the next code-driven version bump per the package's piggy-back policy.
+
 ## [0.1.0] — 2026-05-19 — first public release
 
 ### Added
