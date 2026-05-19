@@ -2,7 +2,7 @@
 
 **Drop-in cost optimization for the Vercel AI SDK.** One line of config routes your existing `generateText` / `streamText` / `generateObject` / `streamObject` calls through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Dev tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
 
-Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs) and [`tessera-langchain`](https://github.com/tessera-llm/tessera-langchain) (LangChain integration). Same proxy, same mechanic stack, Vercel AI SDK-shaped API.
+Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs), [`tessera-langchain`](https://github.com/tessera-llm/tessera-langchain) (LangChain integration), and [`tessera-llamaindex`](https://github.com/tessera-llm/tessera-llamaindex) (LlamaIndex integration). Same proxy, same mechanic stack, Vercel AI SDK-shaped API.
 
 [![npm version](https://img.shields.io/npm/v/@tessera-llm/vercel-ai.svg)](https://www.npmjs.com/package/@tessera-llm/vercel-ai) [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
