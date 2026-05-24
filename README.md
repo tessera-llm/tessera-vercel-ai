@@ -59,7 +59,7 @@ npm install @ai-sdk/openai          # or @ai-sdk/anthropic / @ai-sdk/mistral / @
 
 The `@ai-sdk/*` packages are peer dependencies — install only the providers you actually use. The `ai` core SDK is whatever version you already have.
 
-Get a free Tessera API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tsr_…` key plus magic-link dashboard access.
+Get a free Tessera API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tk_…` key plus magic-link dashboard access.
 
 ---
 
@@ -73,7 +73,7 @@ Get a free Tessera API key (60M tokens/mo, no card) at **[tesseraai.io/dev](http
 | Groq | `@ai-sdk/groq` | `tesseraGroqConfig` | `tesseraGroq` |
 | Cohere | `@ai-sdk/cohere` | `tesseraCohereConfig` | `tesseraCohere` |
 
-Generic dispatcher available too: `tesseraConfig("openai", { apiKey: "tsr_..." })` — returns the right `{ baseURL, headers }` object regardless of provider. Useful when the provider is parameterized at runtime.
+Generic dispatcher available too: `tesseraConfig("openai", { apiKey: "tk_..." })` — returns the right `{ baseURL, headers }` object regardless of provider. Useful when the provider is parameterized at runtime.
 
 ---
 
@@ -114,7 +114,7 @@ Same mechanic stack as the main [`tessera-sdk`](https://github.com/tessera-llm/t
 - **Free Dev** — 60M tokens/month, 30 requests/minute, all mechanics on, no card. Forever.
 - **Production** — over 60M tokens/month or higher rate limit. **20% of measured savings only.** Zero savings, zero fee. Prepaid Stripe balance, $100 minimum top-up. No subscription, no commit, no minimum monthly.
 
-Existing customers of `tessera-sdk` and `tessera-langchain` keep their `rate_locked_pct` (if any) on this package too — same `tsr_…` key, same billing record.
+Existing customers of `tessera-sdk` and `tessera-langchain` keep their `rate_locked_pct` (if any) on this package too — same `tk_…` key, same billing record.
 
 ---
 
