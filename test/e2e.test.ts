@@ -27,7 +27,7 @@ describe("convenience factory E2E — all 5 providers", () => {
   it("tesseraOpenAI returns a callable @ai-sdk/openai provider", async () => {
     const provider = (await tesseraOpenAI({
       openaiApiKey: "sk-fake",
-      tesseraApiKey: "tsr_test",
+      tesseraApiKey: "tk_test",
     })) as (modelId: string) => { modelId: string };
     expect(typeof provider).toBe("function");
     const model = provider("gpt-4o");
@@ -37,7 +37,7 @@ describe("convenience factory E2E — all 5 providers", () => {
   it("tesseraAnthropic returns a callable @ai-sdk/anthropic provider", async () => {
     const provider = (await tesseraAnthropic({
       anthropicApiKey: "sk-ant-fake",
-      tesseraApiKey: "tsr_test",
+      tesseraApiKey: "tk_test",
     })) as (modelId: string) => { modelId: string };
     expect(typeof provider).toBe("function");
     const model = provider("claude-sonnet-4-5-20250929");
@@ -47,7 +47,7 @@ describe("convenience factory E2E — all 5 providers", () => {
   it("tesseraMistral returns a callable @ai-sdk/mistral provider", async () => {
     const provider = (await tesseraMistral({
       mistralApiKey: "fake-mistral-key",
-      tesseraApiKey: "tsr_test",
+      tesseraApiKey: "tk_test",
     })) as (modelId: string) => { modelId: string };
     expect(typeof provider).toBe("function");
     const model = provider("mistral-large-latest");
@@ -57,7 +57,7 @@ describe("convenience factory E2E — all 5 providers", () => {
   it("tesseraGroq returns a callable @ai-sdk/groq provider", async () => {
     const provider = (await tesseraGroq({
       groqApiKey: "gsk-fake",
-      tesseraApiKey: "tsr_test",
+      tesseraApiKey: "tk_test",
     })) as (modelId: string) => { modelId: string };
     expect(typeof provider).toBe("function");
     const model = provider("llama-3.3-70b-versatile");
@@ -67,7 +67,7 @@ describe("convenience factory E2E — all 5 providers", () => {
   it("tesseraCohere returns a callable @ai-sdk/cohere provider", async () => {
     const provider = (await tesseraCohere({
       cohereApiKey: "fake-cohere",
-      tesseraApiKey: "tsr_test",
+      tesseraApiKey: "tk_test",
     })) as (modelId: string) => { modelId: string };
     expect(typeof provider).toBe("function");
     const model = provider("command-r-plus-08-2024");

@@ -29,7 +29,7 @@ All notable changes to `@tessera-llm/vercel-ai` documented here. Follows [Keep a
 
 ### Architecture
 
-- Same proxy as `tessera-sdk` and `tessera-langchain`. Same `tsr_…` API key works across all three; same billing record. Safe to install side by side.
+- Same proxy as `tessera-sdk` and `tessera-langchain`. Same `tk_…` API key works across all three; same billing record. Safe to install side by side.
 - Open-source thin client × closed-source proxy at `api.tesseraai.io`.
 - No `ai` core dependency, no runtime dep on any `@ai-sdk/*` package — peer-deps only. Install only the providers you actually use.
 

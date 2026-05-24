@@ -175,7 +175,7 @@ export function tesseraConfig(
 export interface TesseraOpenAIFactoryInput {
   /** Your OpenAI API key (sk-...). Stays in your env, forwarded upstream. */
   openaiApiKey: string;
-  /** Your Tessera API key (tsr_...). Get one at tesseraai.io/dev. */
+  /** Your Tessera API key (tk_...). Get one at tesseraai.io/dev. */
   tesseraApiKey: string;
   /** Additional headers to merge with the Tessera auth header. */
   extraHeaders?: Record<string, string>;
