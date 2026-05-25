@@ -7,7 +7,7 @@
  * release changes its createX signature in a breaking way, these tests
  * fail BEFORE we ship a release that would break customers.
  *
- * Locked 2026-05-19 after a self-review caught that only tesseraOpenAI
+ * Test coverage extended 2026-05-19 to cover that only tesseraOpenAI
  * had been smoke-tested in the initial v0.1.0 push. Per invariant #15
  * (diagnostic vocab) + #6 (verify-first), all 5 providers need to be
  * verified, not assumed.
